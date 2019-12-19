@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "MyFile.h"
 
+//given the path to a file, returns the substring after the last "/" (aka the file name)
 TCHAR* MyFile::getFileName(const TCHAR* filePath) {
 	TCHAR string1[200];
 	_tcscpy_s(string1, filePath);
@@ -17,6 +18,8 @@ TCHAR* MyFile::getFileName(const TCHAR* filePath) {
 	return theToken1;
 }
 
+//opens a file dialog
+//returns the path of the file
 const TCHAR* MyFile::getFilePath() {
 	LPWSTR fileName = NULL;
 	//get file
@@ -40,6 +43,7 @@ const TCHAR* MyFile::getFilePath() {
 	return fileName;
 }
 
+//does not work
 bool MyFile::setWindowText(LPWSTR fileName, HWND IDC) {
 	bool result = false;
 	if (fileName) {
